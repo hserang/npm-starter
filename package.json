@@ -1,0 +1,50 @@
+{
+    "name": "npm-cli-starter",
+    "version": "1.0.0",
+    "description": "template for npm scripts",
+    "bin": {
+        "change-me": "./lib/index.js"
+    },
+    "directories": {
+        "lib": "lib"
+    },
+    "main": "./lib/index.js",
+    "typings": "./lib/index.d.ts",
+    "scripts": {
+        "build": "npm run clean:build && ./node_modules/.bin/tsc -p .",
+        "clean:all": "rm -rf ./lib ./docs ./node-modules ./package-lock.json",
+        "clean:build": "rm -rf ./lib ./docs",
+        "create": "npm run build && npm run test",
+        "publish:package": "npm run build && npm publish",
+        "refresh": "npm run clean:all && npm install",
+        "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+        "test:install": "npm i -g"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hserang/npm-starter.git"
+    },
+    "author": "Haroun Serang <hserang@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/hserang/npm-starter/issues"
+    },
+    "homepage": "https://github.com/hserang/npm-starter#readme",
+    "engines": {
+        "node": ">=10.16.3"
+    },
+    "dependencies": {
+        "chalk": "^4.1.0",
+        "clear": "^0.1.0",
+        "commander": "^5.1.0",
+        "figlet": "^1.4.0",
+        "path": "^0.12.7"
+    },
+    "devDependencies": {
+        "@types/figlet": "^1.2.0",
+        "@types/node": "^14.0.14",
+        "nodemon": "^2.0.4",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.6"
+    }
+}
